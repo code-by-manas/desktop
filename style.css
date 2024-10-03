@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+
+/* Resetting padding and margin for all elements, and setting the font family */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Bodoni Moda', serif;
+}
+
+/* Styling for the body of the document */
+body {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://cdn.pixabay.com/animation/2022/10/10/02/39/02-39-55-927_512.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Container for the 3D effect */
+.container {
+    perspective: 1000px;
+}
+
+/* Styling for the card */
+.card {
+    width: 280px;
+    height: 360px;
+    position: absolute;
+    top: 100px;
+    left: 230px;
+    transition: 2s;
+    transform-style: preserve-3d;
+}
+
+/* Class for the flipped state of the card */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Common styles for the outside and inside of the card */
+.outside, .inside {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Styling for the outside of the card */
+.outside {
+    background-color: black;
+    box-shadow: inset 0 5px 10px rgba(255,255,255,0.5);
+    position: absolute;
+    backface-visibility: hidden; /* Hides the backface of the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the main heading in the outside section */
+.outside h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: salmon;
+    margin-bottom: 30px;
+}
+
+/* Tap Here message styling for the front */
+.touch-message {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f1c40f;
+    margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    animation: pulse 1.5s infinite;
+    backface-visibility: hidden; /* Ensures Tap Here is not mirrored */
+}
+
+/* Keyframes for the pulse effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Styling for the inside of the card */
+.inside {
+    background-color: black;
+    box-shadow: inset 0 5px 10px rgba(255,255,255,0.5);
+    transform: rotateY(180deg);
+    backface-visibility: hidden; /* Hide mirrored text before flip */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for the main heading in the inside section */
+.inside h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: white;
+}/* Container for additional frames */
+.block {
+    position: absolute; /* Position it absolutely within the container */
+    top: 100px; /* Adjust this to position the block vertically */
+    right: 100px; /* This moves the block to the right side of the page */
+    perspective: 2000px; /* Sets perspective for child frames */
+}
+
+.frames {
+    width: 500px; /* Sets width for each frame */
+    height: 150px; /* Sets height for each frame */
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5); /* Adds a shadow for depth */
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Vertically centers items */
+    justify-content: space-around; 
+    padding: 0 0.8rem; /* Adds horizontal padding */
+    background-color: black; /* Sets background color to black for all frames */
+    margin-bottom: 0; /* No space between frames */
+    transform: rotateY(-230deg) rotateX(20deg); /* Adjust for the 3D effect */
+    position: relative; /* Positions the frames relative to the block */
+    right: 50px; /* Adjust to move the frames left by 50 pixels (change as needed) */
+}
+
+
+
+
+/* Styling for images within frames */
+.frames img {
+    width: 125px; /* Sets width for the images */
+    height: 125px; /* Sets height for the images */
+    border-radius: 50%; /* Makes images circular */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5); /* Adds shadow for depth */
+}
+
+/* Styling for text in frames */
+.frames p {
+    font-size: 25px; /* Sets font size for the text */
+    font-weight: bold; /* Makes the text bold */
+    transform: rotateY(180deg); 
+    color: white; /* Sets text color to white for contrast */
+}
+
+.frames:nth-child(1) {
+    top: -110; /* Adjust the position to be visible */
+    z-index: 1; /* Bring it above the other frames */
+}
+
+.frames:nth-child(2) {
+    top: 0px; /* Position immediately below the first frame */
+    z-index: 2; /* Ensure it's layered above the first one */
+}
+
+.frames:nth-child(3) {
+    top: 0px; /* Position immediately below the second frame */
+    z-index: 3; /* Ensure it's layered above the second one */
+}
+
+
+/* Styling for the birthday message */
+.birthday-message {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+.birthday-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px; 
+    margin-bottom: 20px; 
+}
